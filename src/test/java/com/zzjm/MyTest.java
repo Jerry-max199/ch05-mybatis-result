@@ -8,6 +8,7 @@ import org.junit.Test;
 import com.zzjm.vo.ViewStudent;
 
 import java.util.List;
+import java.util.Map;
 
 public class MyTest {
     @Test
@@ -42,5 +43,12 @@ public class MyTest {
         StudentDao studentDao=sqlSession.getMapper(StudentDao.class);
         int count=studentDao.Studentcount();
         System.out.println("学生数量"+count);
+    }
+    @Test
+    public void selectStudentMapTest(){
+        SqlSession sqlSession=MyUtil.getSqlsession();
+        StudentDao studentDao=sqlSession.getMapper(StudentDao.class);
+        Map<Object,Object> map=studentDao.selectStudentbyid(1001);
+        System.out.println("map="+map);
     }
 }

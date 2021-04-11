@@ -16,4 +16,8 @@
     <select id="Studentcount" resultType="int">
       SELECT COUNT(*) FROM student
     </select>
+    <!--Map的使用-->
+    <select id="selectStudentbyid" resultType="java.util.HashMap">
+        select id,name from Student where id=#{id}
+    </select>
 </mapper>
