@@ -57,4 +57,13 @@
     <select id="selectMyStudentResultMap2" resultType="com.zzjm.domain.MyStudent">
         select id as myid ,name as myname, email as myemail ,age as myage from Student
     </select>
+
+    <!--like的使用第一种在java类中指定like-->
+    <select id="StudentStudentLikeOne" resultType="com.zzjm.domain.Student">
+        select * from Student where name like #{name}
+    </select>
+    <!--like的使用第二种在mapper文件中指定like-->
+    <select id="StudentStudentLikeTwo" resultType="com.zzjm.domain.Student">
+        select * from Student where name like "%" #{name}"%"
+    </select>
 </mapper>

@@ -19,4 +19,7 @@ public interface StudentDao {
     List<Student> selectStudentResultMap();
     List<MyStudent> selectMyStudentResultMap();
     List<MyStudent> selectMyStudentResultMap2();
+    //Like的使用
+    List<Student> StudentStudentLikeOne(String name);
+    List<Student> StudentStudentLikeTwo(String name);
 }

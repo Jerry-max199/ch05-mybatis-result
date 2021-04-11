@@ -88,4 +88,26 @@ public class MyTest {
         }
         sqlSession.close();
     }
+    @Test
+    public void selectStudentLikeOneTest(){
+        String name="%李%";
+        SqlSession sqlSession=MyUtil.getSqlsession();
+        StudentDao studentDao=sqlSession.getMapper(StudentDao.class);
+        List<Student> myStudentList=studentDao.StudentStudentLikeOne(name);
+        for (Student student:myStudentList){
+            System.out.println("学"+student);
+        }
+        sqlSession.close();
+    }
+    @Test
+    public void selectStudentLikeTwoTest(){
+        String name="李";
+        SqlSession sqlSession=MyUtil.getSqlsession();
+        StudentDao studentDao=sqlSession.getMapper(StudentDao.class);
+        List<Student> myStudentList=studentDao.StudentStudentLikeTwo(name);
+        for (Student student:myStudentList){
+            System.out.println("学"+student);
+        }
+        sqlSession.close();
+    }
 }
