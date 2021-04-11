@@ -16,7 +16,8 @@ public class MyTest {
         StudentDao studentDao=sqlSession.getMapper(StudentDao.class);
         Student student=studentDao.SelectStudent(1001);
         System.out.println(student);
-    }
+   }
+   //别名的使用
     @Test
     public void SelectStudentListTest(){
         SqlSession sqlSession=MyUtil.getSqlsession();
@@ -34,5 +35,12 @@ public class MyTest {
         for (ViewStudent viewStudent:viewStudentList){
             System.out.println("1001数据"+viewStudentList);
         }
+    }
+    @Test
+    public void StudentCountTest(){
+        SqlSession sqlSession=MyUtil.getSqlsession();
+        StudentDao studentDao=sqlSession.getMapper(StudentDao.class);
+        int count=studentDao.Studentcount();
+        System.out.println("学生数量"+count);
     }
 }

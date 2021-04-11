@@ -10,4 +10,5 @@ public interface StudentDao {
     Student SelectStudent(@Param("id") int id);
     List<Student> SelectStudentList(@Param("Sid") int id,@Param("Sname") String name);
     List<ViewStudent> SelectStudentViewStudent(@Param("sid") int id);
+    int Studentcount();
 }

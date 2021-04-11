@@ -6,10 +6,14 @@
     <select id="SelectStudent" resultType="com.zzjm.domain.Student">
         select * from Student where id=#{id} order by id
     </select>
-    <select id="SelectStudentList" resultType="com.zzjm.domain.Student">
+    <!--别名的使用-->
+    <select id="SelectStudentList" resultType="Student">
         select * from Student where id=#{Sid} and name=#{Sname} order by id
     </select>
     <select id="SelectStudentViewStudent" resultType="com.zzjm.vo.ViewStudent">
         select id,name,email from Student where id=#{sid} order by id
+    </select>
+    <select id="Studentcount" resultType="int">
+      SELECT COUNT(*) FROM student
     </select>
 </mapper>
