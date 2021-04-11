@@ -23,4 +23,38 @@
     <select id="selectStudentbyid" resultType="java.util.HashMap">
         select id,name from Student where id=#{id}
     </select>
+    <!--resultMap的使用
+    1.定义resultMap
+    id:自定义名称，表示你定义的这个resultMap
+    type：java的全限定名称
+    -->
+    <resultMap id="myresultMap" type="com.zzjm.domain.Student">
+        <!--列名和java属性的关系
+        主键列，使用id标签
+        column：列名
+        property：java属性名
+        非主键使用result
+        -->
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="email" property="email"></result>
+        <result column="age" property="age"></result>
+    </resultMap>
+    <select id="selectStudentResultMap" resultMap="myresultMap">
+        select * from Student
+    </select>
+    <!--列名与属性名不同的第一种方式赋值-->
+    <resultMap id="myStudentresultMap" type="com.zzjm.domain.MyStudent">
+        <id column="id" property="myid"></id>
+        <result column="name" property="myname"></result>
+        <result column="email" property="myemail"></result>
+        <result column="age" property="myage"></result>
+    </resultMap>
+    <select id="selectMyStudentResultMap" resultMap="myStudentresultMap">
+        select * from Student
+    </select>
+    <!--列别名的使用-->
+    <select id="selectMyStudentResultMap2" resultType="com.zzjm.domain.MyStudent">
+        select id as myid ,name as myname, email as myemail ,age as myage from Student
+    </select>
 </mapper>

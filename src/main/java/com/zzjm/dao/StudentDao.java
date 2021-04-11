@@ -1,5 +1,6 @@
 package com.zzjm.dao;
 
+import com.zzjm.domain.MyStudent;
 import com.zzjm.domain.Student;
 import org.apache.ibatis.annotations.Param;
 import com.zzjm.vo.ViewStudent;
@@ -14,4 +15,8 @@ public interface StudentDao {
     int Studentcount();
     //map的使用
     Map<Object,Object> selectStudentbyid(int id);
+    //使用resultMap
+    List<Student> selectStudentResultMap();
+    List<MyStudent> selectMyStudentResultMap();
+    List<MyStudent> selectMyStudentResultMap2();
 }
